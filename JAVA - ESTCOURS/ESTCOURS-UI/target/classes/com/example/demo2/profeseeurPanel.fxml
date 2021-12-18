@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="481.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.ProfesseurController">
+   <children>
+      <TabPane layoutX="-3.0" layoutY="84.0" prefHeight="413.0" prefWidth="886.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Accueil">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;">
+                     <children>
+                        <Pane layoutX="117.0" layoutY="79.0" prefHeight="177.0" prefWidth="161.0" style="-fx-background-color: #457B9D;">
+                           <children>
+                              <Label layoutX="52.0" layoutY="132.0" text="Etudiants" textFill="WHITE" />
+                              <Label fx:id="etudiantCount" layoutX="61.0" layoutY="29.0" text="5" textFill="WHITE">
+                                 <font>
+                                    <Font size="70.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="365.0" layoutY="79.0" prefHeight="177.0" prefWidth="161.0" style="-fx-background-color: #457B9D;">
+                           <children>
+                              <Label layoutX="54.0" layoutY="132.0" text="Matières" textFill="WHITE" />
+                              <Label layoutX="61.0" layoutY="29.0" text="5" textFill="WHITE">
+                                 <font>
+                                    <Font size="70.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="607.0" layoutY="79.0" prefHeight="177.0" prefWidth="161.0" style="-fx-background-color: #457B9D;">
+                           <children>
+                              <Label layoutX="63.0" layoutY="132.0" text="Cours" textFill="WHITE" />
+                              <Label fx:id="coursCount" layoutX="61.0" layoutY="29.0" text="5" textFill="WHITE">
+                                 <font>
+                                    <Font size="70.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label layoutX="35.0" layoutY="20.0" text="Statistiques :">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Professeur">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="886.0">
+                     <children>
+                        <AnchorPane layoutX="-1.0" layoutY="1.0" prefHeight="436.0" prefWidth="394.0" style="-fx-background-color: #2c3e50;">
+                           <children>
+                              <TextField fx:id="matiereLinkField" layoutX="52.0" layoutY="263.0" prefHeight="26.0" prefWidth="290.0" promptText="Lien" style="-fx-background-color: #fff;" />
+                              <Label layoutX="122.0" layoutY="14.0" style="-fx-text-fill: #fff;" text="Ajouter un fichier" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="52.0" layoutY="66.0" style="-fx-text-fill: #d4d4d4;" text="L'élément :" textFill="#d9d9d9" />
+                              <Label layoutX="52.0" layoutY="120.0" style="-fx-text-fill: #d4d4d4;" text="Type du fichier :" textFill="#d9d9d9" />
+                              <Label layoutX="52.0" layoutY="178.0" style="-fx-text-fill: #d4d4d4;" text="Nom du fichier :" textFill="#d9d9d9" />
+                              <TextField fx:id="matiereNameField" layoutX="52.0" layoutY="199.0" prefHeight="26.0" prefWidth="290.0" promptText="Nom" style="-fx-background-color: #fff;" />
+                              <Label layoutX="52.0" layoutY="245.0" style="-fx-text-fill: #d4d4d4;" text="Lien du fichier :" textFill="#d9d9d9" />
+                              <Button layoutX="131.0" layoutY="300.0" mnemonicParsing="false" onAction="#addMatiere" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #fff; -fx-text-fill: #2c3e50;" text="Ajouter" textFill="#2c3e50" />
+                              <Label fx:id="errorMatiere" layoutX="177.0" layoutY="41.0" textFill="#ff6262" />
+                              <Label fx:id="succesMatiere" layoutX="270.0" layoutY="307.0" prefHeight="41.0" prefWidth="94.0" text="Label" textFill="#23ff8a">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="matiereCombo" layoutX="52.0" layoutY="84.0" prefHeight="26.0" prefWidth="291.0" promptText="matière" />
+                              <ComboBox fx:id="typeCombo" layoutX="51.0" layoutY="138.0" prefHeight="26.0" prefWidth="291.0" promptText="type" />
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="437.0" layoutY="16.0" style="-fx-text-fill: #000;" text="Afficher les fichiers">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="778.0" layoutY="17.0" mnemonicParsing="false" onAction="#refreshTable" text="refresh table" />
+                        <TableView fx:id="matiereTable" layoutX="437.0" layoutY="72.0" prefHeight="264.0" prefWidth="422.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Paramétre">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <AnchorPane layoutY="-3.0" prefHeight="94.0" prefWidth="886.0" style="-fx-background-color: #1D3557;">
+         <children>
+            <Label layoutX="26.0" layoutY="14.0" text="EST Cours" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="48.0" text="Bonjour : " textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="userName" layoutX="86.0" layoutY="48.0" textFill="#b1b1b1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="start" layoutX="612.0" layoutY="32.0" mnemonicParsing="false" onAction="#addStatsProf" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #fff; -fx-text-fill: #1D3557;" text="Refresh" textFill="#8c2323" />
+            <Button layoutX="742.0" layoutY="32.0" mnemonicParsing="false" onAction="#disconnect" prefHeight="30.0" prefWidth="118.0" text="Se déconnecter" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

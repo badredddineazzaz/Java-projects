@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="648.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.EtudiantController">
+   <children>
+      <Pane prefHeight="106.0" prefWidth="638.0" style="-fx-background-color: #245254;">
+         <children>
+            <Label layoutX="26.0" layoutY="23.0" text="EST COURS" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="474.0" layoutY="38.0" mnemonicParsing="false" onAction="#disconnect" style="-fx-padding: 5px 25px; -fx-background-color: white;" text="Se déconnecter" textFill="#245254">
+               <font>
+                  <Font name="Yu Gothic Medium" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Label fx:id="username" layoutX="26.0" layoutY="56.0" text="AZZAZ Badr Eddine" textFill="#acacac" />
+         </children>
+      </Pane>
+      <Label layoutX="45.0" layoutY="129.0" text="Matière :" />
+      <Label layoutX="266.0" layoutY="129.0" text="Type :" />
+      <ComboBox fx:id="matiereCombo" layoutX="45.0" layoutY="151.0" prefHeight="26.0" prefWidth="175.0" promptText="matiereCombo" style="-fx-background-color: #fff; -fx-border-radius: 5px; -fx-border-color: #245254;" />
+      <ComboBox fx:id="typeCombo" layoutX="266.0" layoutY="151.0" prefHeight="26.0" prefWidth="175.0" promptText="typeCombo" style="-fx-background-color: #fff; -fx-border-color: #245254; -fx-border-radius: 5px;" styleClass="ComboStyle" />
+      <Button layoutX="487.0" layoutY="151.0" mnemonicParsing="false" onAction="#searchTable" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #245254;" text="Chercher" textFill="WHITE" />
+      <Line endX="422.0" layoutX="146.0" layoutY="203.0" startX="-73.20002746582031" stroke="#b4b4b4" />
+      <TableView fx:id="matiereTable" layoutX="45.0" layoutY="226.0" prefHeight="252.0" prefWidth="546.0" />
+      <Line endX="422.0" layoutX="144.0" layoutY="499.0" startX="-73.20002746582031" stroke="#b4b4b4" />
+      <Label layoutX="241.0" layoutY="509.0" text="Ouvrir un fichier :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="getIdFile" layoutX="94.0" layoutY="560.0" prefHeight="26.0" prefWidth="294.0" />
+      <Label layoutX="94.0" layoutY="543.0" text="Id du fichier :" />
+      <Button layoutX="413.0" layoutY="561.0" mnemonicParsing="false" onAction="#openLink" prefHeight="26.0" prefWidth="114.0" text="Ouvrir" />
+   </children>
+</AnchorPane>
